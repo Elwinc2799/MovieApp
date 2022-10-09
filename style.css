@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root {
+    --primary-color:#22254b;
+    --secondary-color:#373b69;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 10;
+}   
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+}
+
+/* style form */
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+}
+
+.search::placeholder {
+    color: #7378c5;
+}
+
+.search:focus {
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+/* style movie section */
+/* all the divs with the class of movie are flex items within the main */
+main {
+    display: flex;
+    /* we want the movie divs to wrap to the next line */
+    flex-wrap: wrap;
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgb(0,0,0,0.2);
+    /* we position relative so we can position the nested items absolute */
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+/* the image would be 100% of its div */
+.movie img {
+    width: 100%;
+}
+
+/* Movie info (movei title and rating) */
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Movie title */
+.movie-info h3 {
+    margin-top: 0;
+}
+
+/* this is the movie rate */
+.movie-info span {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* different color classes for rating */
+.movie-info span.green {
+    color: lightgreen;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.movie-info span.orange {
+    color: orange;
+}
+
+.overview {
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100%;
+    /* we dont want to show the overview initially */
+    /* we want to push it down we have to set a positive value */
+    transform: translateY(101%);
+    /* when we hover it slides up */
+    transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+    /* .movie is the entire box getting hover */
+    transform: translateY(0);
+}
